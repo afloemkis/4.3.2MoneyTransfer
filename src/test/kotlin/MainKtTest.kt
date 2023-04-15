@@ -99,6 +99,6 @@ class MainKtTest {
 
         val result = commission(accountType, totalDay, totalMonth, transferAmount)
 
-        assertEquals("Тип карты нeизвестен", result)
+        assertEquals("Тип карты неизвестен", result)
     }
 }

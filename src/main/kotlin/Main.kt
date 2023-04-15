@@ -17,7 +17,7 @@ fun commission(accountType: String = "VKPay", totalDay: Int = 0, totalMonth: Int
             transferAmount > VKMax -> "Сумма перевода превышает максимально допустимую ${VKMax} руб"
             totalMonth >= VKmonthMax -> "В этом месяце лимит переводов по VKpay исчерпан"
             totalMonth + transferAmount > VKmonthMax -> "В этом месяце вы можете перевести не более ${VKmonthMax - totalMonth} руб"
-            else -> "комиссия 0 рублей"
+            else -> "Комиссия 0 рублей"
         }
     } else {
         return when {
@@ -31,8 +31,8 @@ fun commission(accountType: String = "VKPay", totalDay: Int = 0, totalMonth: Int
                 )
             } руб"
 
-            ((accountType == "MasterCard") or (accountType == "Maestro")) and (transferAmount > CardLimit) -> "Комиссия ${0.006 * transferAmount + 20} руб"
-            (accountType == "MasterCard") or (accountType == "Maestro") -> "Комиссия 0 руб"
+            ((accountType == "MasterCard") or (accountType == "Maestro")) and (transferAmount > CardLimit) -> "Комиссия ${(0.006 * transferAmount).toInt() + 20} руб"
+            (accountType == "MasterCard") or (accountType == "Maestro") -> "Комиссия 0 рублей"
             else -> "Тип карты неизвестен"
         }
 
